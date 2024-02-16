@@ -1,11 +1,11 @@
 import Button from "./Button";
 
-export default function MainPage() {
+export default function MainPage({ onMenuSelect }) {
   return (
     <div className="main-page">
       <div className="menu">
         <Button text="Art" radius="50px" />
-        <Button text="Employment" />
+        <Button text="Employment" onClick={() => onMenuSelect("Employment")} />
       </div>
 
       <header className="header">
