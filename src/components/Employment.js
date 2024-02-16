@@ -4,14 +4,13 @@ import Job from "./Job"; // Import the Job component
 export default function Employment({ onMenuSelect }) {
   return (
     <div className="employment" id="employment-section">
-      <div className="back-button">
-        <ArrowButton
-          direction="left"
-          onClick={() => onMenuSelect("MainPage")}
-        />
-      </div>
-
       <header className="header">
+        <div className="back-button">
+          <ArrowButton
+            direction="up"
+            onClick={() => onMenuSelect("MainPage")}
+          />
+        </div>
         <h1>Employment</h1>
         <div className="down-button">
           <ArrowButton

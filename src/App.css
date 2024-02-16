@@ -57,24 +57,23 @@ header p {
 }
 
 .back-button {
-  position: relative;
+  position: absolute;
   top: 20px;
   left: 20px;
   z-index: 10;
 }
 
 .down-button {
-  position: relative;
-  bottom: 20px; 
-  right: 20px;
-  margin-top: 100px;
+  position: absolute; /* Use 'fixed' to keep it at the bottom left regardless of scrolling */
+  bottom: 20px; /* Distance from the bottom */
+  left: 20px; /* Distance from the left */
+  z-index: 10;
 }
 
 .up-button {
   position: relative;
   bottom: 20px;
-  left: 50%;
-  right: 50%;
+  left: 20px;
 }
 
 .resume {
