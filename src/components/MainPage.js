@@ -3,10 +3,7 @@ import Button from "./Button";
 export default function MainPage({ onMenuSelect }) {
   return (
     <div className="main-page">
-      <div className="menu">
-        <Button text="Art" radius="50px" />
-        <Button text="Employment" onClick={() => onMenuSelect("Employment")} />
-      </div>
+      {/* <div className="menu"></div> */}
 
       <header className="header">
         <h1>Robert Di Ninno</h1>
@@ -16,8 +13,10 @@ export default function MainPage({ onMenuSelect }) {
       </header>
 
       <div className="menu">
-        <Button text="Contact" />
+        <Button text="Employment" onClick={() => onMenuSelect("Employment")} />
+        <Button text="Art" radius="50px" />
         <Button text="Portfolio" radius="50px 5px 50px 5px" />
+        <Button text="Contact" />
       </div>
     </div>
   );
