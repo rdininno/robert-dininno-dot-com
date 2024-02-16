@@ -1,21 +1,23 @@
-import ArrowButton from "./ArrowButton";
 import Button from "./Button";
 
 export default function MainPage() {
   return (
     <div className="main-page">
+      <div className="menu">
+        <Button text="Art" radius="50px" />
+        <Button text="Employment" />
+      </div>
+
       <header className="header">
         <h1>Robert Di Ninno</h1>
-      </header>
-      <div className="main-page-content">
         <div className="description">
-          Full stack developer with a focus on the front end. Write a longer
-          description here.
+          <p>Full stack developer with a passion for the front end.</p>
         </div>
-        <div>
-          <ArrowButton direction="down" />
-          <Button text="Employment" />
-        </div>
+      </header>
+
+      <div className="menu">
+        <Button text="Contact" />
+        <Button text="Portfolio" radius="50px 5px 50px 5px" />
       </div>
     </div>
   );
