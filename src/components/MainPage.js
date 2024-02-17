@@ -16,7 +16,7 @@ export default function MainPage({ onMenuSelect }) {
         <Button text="Employment" onClick={() => onMenuSelect("Employment")} />
         <Button text="Art" radius="50px" />
         <Button text="Portfolio" radius="50px 5px 50px 5px" />
-        <Button text="Contact" />
+        <Button text="About" onClick={() => onMenuSelect("About")} />
       </div>
     </div>
   );

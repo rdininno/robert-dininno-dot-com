@@ -97,6 +97,52 @@ header p {
   font-size: 20px;
 }
 
+/* About Page */
+.about-page {
+  font-family: "DM Sans";
+  position: relative;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 90px 20px 20px;
+  background-color: #0800e7;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page h4 {
+  font-size: 2.5em;
+  margin: 0px;
+}
+
+.skills-container {
+  font-family: "Dosis";
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.skills-container p {
+    margin: 10px 0px 10px 0px;
+    font-size: 1.7em;
+    text-align: center;
+  }
+
+.email {
+  font-size: 4.5em; 
+  margin: 0px;
+}
+
+.blurb {
+  width: 85%;
+  font-size: 2em;
+}
+
+
 /* ArrowButton */
 .arrowButton {
   display: flex;
