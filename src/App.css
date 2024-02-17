@@ -107,6 +107,7 @@ header p {
   justify-content: flex-start;
   padding: 90px 20px 20px;
   background-color: #0800e7;
+  overflow: hidden; 
 }
 
 .about-content {
@@ -123,7 +124,7 @@ header p {
   font-family: "Dosis";
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 45vw;
 }
 
 .skills-container p {
