@@ -4,6 +4,7 @@ import { useState } from "react";
 import MainPage from "./components/MainPage";
 import Employment from "./components/Employment";
 import About from "./components/About";
+import Art from "./components/Art";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState("MainPage");
@@ -21,6 +22,7 @@ function App() {
         <Employment onMenuSelect={onMenuSelect} />
       )}
       {activeComponent === "About" && <About onMenuSelect={onMenuSelect} />}
+      {activeComponent === "Art" && <Art onMenuSelect={onMenuSelect} />}
     </div>
   );
 }
