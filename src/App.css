@@ -143,6 +143,31 @@ header p {
   font-size: 2em;
 }
 
+/* Audio Player */
+.audio-button {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background: none;
+  border: 2px solid black;
+}
+
+.play-pause-icon {
+  height: 50%;
+}
+
+.audio-name {
+  font-size: 3em;
+  margin-left: 10px;
+}
+
+.audio-player {
+  display: flex;
+  flex-direction: row;
+}
 
 /* ArrowButton */
 .arrowButton {
