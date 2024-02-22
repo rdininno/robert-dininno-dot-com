@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ArrowButton from "./ArrowButton";
+import AlbumButton from "./AlbumButton";
 import AudioPlayer from "./AudioPlayer";
 
 export default function Album({ albumName, tracks }) {
@@ -12,7 +12,7 @@ export default function Album({ albumName, tracks }) {
   return (
     <div className="album">
       <div className="album-header">
-        <ArrowButton
+        <AlbumButton
           direction={isAlbumListVisible ? "down" : "right"}
           onClick={toggleAlbumListVisibility}
         />
