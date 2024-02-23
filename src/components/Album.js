@@ -6,42 +6,49 @@ export default function Album({ albumName, tracks }) {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isAlbumListVisible, setIsAlbumListVisible] = useState(false);
-  const audioRef = useRef(new Audio());
+  const audioRef = useRef(null);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    audioRef.current = new Audio();
+    return () => {
+      audioRef.current.pause();
+      audioRef.current.src = ""; // Clear the audio source
+    };
+  }, []);
+
   const playTrack = (index) => {
     const isNewTrack = index !== currentTrackIndex;
-    if (audioRef.current) {
-      if (isNewTrack) {
-        audioRef.current.src = tracks[index].src;
-        audioRef.current.play();
-        setCurrentTrackIndex(index);
-        setIsPlaying(true);
+    if (isNewTrack) {
+      audioRef.current.src = tracks[index].src;
+      audioRef.current.play();
+      setCurrentTrackIndex(index);
+      setIsPlaying(true);
+    } else {
+      if (isPlaying) {
+        audioRef.current.pause();
       } else {
-        if (isPlaying) {
-          audioRef.current.pause();
-        } else {
-          audioRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
+        audioRef.current.play();
       }
+      setIsPlaying(!isPlaying);
     }
   };
 
   const toggleAlbumListVisibility = () => {
     setIsAlbumListVisible(!isAlbumListVisible);
+
     if (isAlbumListVisible) {
-      setIsPlaying(false);
-      audioRef.current.pause();
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        setIsPlaying(false);
+      }
     }
   };
 
   useEffect(() => {
-    const audio = audioRef.current;
     const handleTrackEnd = () => {
-      const nextIndex =
-        currentTrackIndex + 1 < tracks.length ? currentTrackIndex + 1 : null;
-      if (nextIndex !== null) {
+      let nextIndex = currentTrackIndex + 1;
+      if (nextIndex < tracks.length) {
         playTrack(nextIndex);
       } else {
         setCurrentTrackIndex(null);
@@ -49,11 +56,16 @@ export default function Album({ albumName, tracks }) {
       }
     };
 
-    audio.addEventListener("ended", handleTrackEnd);
+    if (audioRef.current) {
+      audioRef.current.addEventListener("ended", handleTrackEnd);
+    }
+
     return () => {
-      audio.removeEventListener("ended", handleTrackEnd);
+      if (audioRef.current) {
+        audioRef.current.removeEventListener("ended", handleTrackEnd);
+      }
     };
-  }, [currentTrackIndex, playTrack, tracks.length]);
+  }, [currentTrackIndex, tracks.length]);
 
   return (
     <div className="album">
