@@ -12,10 +12,7 @@ export default function Album({ albumName, tracks }) {
   return (
     <div className="album">
       <div className="album-header">
-        <AlbumButton
-          direction={isAlbumListVisible ? "down" : "right"}
-          onClick={toggleAlbumListVisibility}
-        />
+        <AlbumButton onClick={toggleAlbumListVisibility} />
         <h2 className="album-name">{albumName}</h2>
       </div>
       {isAlbumListVisible && (
