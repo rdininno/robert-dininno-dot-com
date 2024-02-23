@@ -143,13 +143,110 @@ header p {
   font-size: 2em;
 }
 
+/* Art Page */
+.art-page {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.art-content {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.art-button-wrapper {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes strobeEffect {
+  0% { background-color: #000; color: #0800e7}
+  25% { background-color: #0800e7; color: #000 }
+  50% { background-color: #000; color: #0800e7}
+  75% { background-color: #0800e7; color: #000 }
+  100% { background-color: #000; color: #0800e7}
+}
+
+.art-page-button {
+  font-size: 5em;
+  background: #0800e7;
+  border: none;
+  font-weight: bold;
+  color: #000;
+  height: 70vh;
+  width: 70vh;
+}
+
+.art-page-button:hover {
+  color: #0800e7;
+  animation: strobeEffect 0.6s infinite;
+}
+
+/* Music Page */
+.music-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.music-content {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.music-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+/* Album */
+.album-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.album-name {
+  font-size: 3em;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.album-arrowButton {
+  border: none;
+}
+
+.album-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.album {
+  margin: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+
 /* Audio Player */
 .audio-button {
   display: flex; 
   align-items: center;
   justify-content: center;
-  width: 70px;
-  height: 70px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   background: none;
   border: 2px solid black;
@@ -160,13 +257,29 @@ header p {
 }
 
 .audio-name {
-  font-size: 3em;
+  font-size: 2em;
   margin-left: 10px;
 }
 
 .audio-player {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+
+/* AlbumButton */
+.album-button {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #0800e700;
+  font-size: 60px;
+  line-height: 1;
+  transition: background-color 0.2s; 
 }
 
 /* ArrowButton */
