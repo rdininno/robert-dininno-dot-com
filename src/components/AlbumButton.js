@@ -1,10 +1,21 @@
-export default function AlbumButton({ direction = "right", onClick }) {
+import { useState } from "react";
+
+export default function AlbumButton({ onClick }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <button className={`album-button ${direction}`} onClick={onClick}>
-      {direction === "up" && "↑"}
-      {direction === "right" && "→"}
-      {direction === "down" && "↓"}
-      {direction === "left" && "←"}
+    <button
+      className={`album-button ${isOpen ? "open" : "closed"}`}
+      onClick={handleClick}
+    >
+      {isOpen ? "×" : "+"}
     </button>
   );
 }
