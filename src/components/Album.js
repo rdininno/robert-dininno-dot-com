@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AlbumButton from "./AlbumButton";
-import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid"; // Assuming you're using Heroicons
+import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid";
 
 export default function Album({ albumName, tracks }) {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(null);

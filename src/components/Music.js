@@ -17,8 +17,14 @@ export default function Music({ onMenuSelect }) {
           <Album
             albumName="Soul Vibes"
             tracks={[
-              { src: "/audio/Festivals_OneMin.mp3", title: "Festivals" },
-              { src: "/audio/Festivals_OneMin.mp3", title: "Soul Vibes 1" },
+              { src: "/audio/intro.mp3", title: "Intro" },
+              { src: "/audio/festivals.mp3", title: "Festivals" },
+              { src: "/audio/aintrun.mp3", title: "Run" },
+              { src: "/audio/mod.mp3", title: "Modded" },
+              { src: "/audio/sonnyblue.mp3", title: "Soul Vibes" },
+              { src: "/audio/street.mp3", title: "On the Block" },
+              { src: "/audio/want.mp3", title: "Wanting" },
+              { src: "/audio/how.mp3", title: "How" },
             ]}
           />
 
