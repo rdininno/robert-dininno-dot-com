@@ -15,7 +15,11 @@ export default function MainPage({ onMenuSelect }) {
       <div className="menu">
         <Button text="Employment" onClick={() => onMenuSelect("Employment")} />
         <Button text="Art" radius="50px" onClick={() => onMenuSelect("Art")} />
-        <Button text="Portfolio" radius="50px 5px 50px 5px" />
+        <Button
+          text="Portfolio"
+          radius="50px 5px 50px 5px"
+          onClick={() => onMenuSelect("Portfolio")}
+        />
         <Button text="About" onClick={() => onMenuSelect("About")} />
       </div>
     </div>

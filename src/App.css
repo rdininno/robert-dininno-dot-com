@@ -239,7 +239,6 @@ header p {
   align-items: center;
 }
 
-
 /* Audio Player */
 .audio-button {
   display: flex; 
@@ -293,6 +292,18 @@ header p {
   font-family: dm sans;
 }
 
+/* Portforlio Page */
+.portfolio-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.portfolio-write-up {
+  font-size: 3em;
+}
 
 /* AlbumButton */
 .album-button {

@@ -7,6 +7,7 @@ import About from "./components/About";
 import Art from "./components/Art";
 import Music from "./components/Music";
 import Visual from "./components/visual";
+import Portfolio from "./components/Portfolio";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState("MainPage");
@@ -27,6 +28,9 @@ function App() {
       {activeComponent === "Art" && <Art onMenuSelect={onMenuSelect} />}
       {activeComponent === "Music" && <Music onMenuSelect={onMenuSelect} />}
       {activeComponent === "Visual" && <Visual onMenuSelect={onMenuSelect} />}
+      {activeComponent === "Portfolio" && (
+        <Portfolio onMenuSelect={onMenuSelect} />
+      )}
     </div>
   );
 }
