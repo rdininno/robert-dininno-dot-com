@@ -246,12 +246,41 @@ header p {
   justify-content: center;
 }
 
-.albums-recorded{
+.albums-recorded {
   display: flex;
+  flex-wrap: wrap;
   background-color: #000;
+  width: 100vw;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.albums-recorded-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #000;
+  width: 100vw;
+  padding: 20px; 
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.albums-recorded-title {
+  font-family: "DM sans";
+  color: #0800e7;
+  font-size: 4em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.albums-played-on{
+  display: flex;
   height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
+
 
 /* Album */
 .album-header {
@@ -317,7 +346,7 @@ header p {
   justify-content: center;
   align-items: center;
   font-size: 9em;
-  font-family: dm sans;
+  font-family: "DM Sans";
 }
 
 .visual-content:hover {
@@ -332,7 +361,7 @@ header p {
   justify-content: center;
   align-items: center;
   font-size: 9em;
-  font-family: dm sans;
+  font-family: "DM Sans";
 }
 
 /* Portforlio Page */
@@ -395,4 +424,12 @@ header p {
 .button:hover {
   background-color: #000000;
   color: #0800e7;
+}
+
+/* iframe */
+.iframe{
+  border: 0; 
+  width: 40%; 
+  height: 120px;
+  margin-bottom: 20px;
 }
