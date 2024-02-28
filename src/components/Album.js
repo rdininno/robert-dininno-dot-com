@@ -12,7 +12,7 @@ export default function Album({ albumName, tracks }) {
     audioRef.current = new Audio();
     return () => {
       audioRef.current.pause();
-      audioRef.current.src = ""; // Clear the audio source
+      audioRef.current.src = "";
     };
   }, []);
 
