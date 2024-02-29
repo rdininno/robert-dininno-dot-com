@@ -276,9 +276,34 @@ header p {
 
 .albums-played-on{
   display: flex;
-  height: 100vh;
-  min-height: 100vh;
+  flex-wrap: wrap;
   width: 100vw;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.albums-played-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  padding: 20px; 
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.albums-played-title {
+  font-family: "DM sans";
+  font-size: 4em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.albums-played-main {
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 
@@ -431,5 +456,12 @@ header p {
   border: 0; 
   width: 40%; 
   height: 120px;
+  margin-bottom: 20px;
+}
+
+.iframe-large{
+  border: 0; 
+  width: 380px; 
+  height: 500px;
   margin-bottom: 20px;
 }

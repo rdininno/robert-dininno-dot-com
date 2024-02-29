@@ -2,6 +2,7 @@ import ArrowButton from "./ArrowButton";
 import Album from "./Album";
 import MusicMenuButton from "./MusicMenuButton.js";
 import AlbumsRecorded from "./AlbumsRecorded.js";
+import AlbumPlayed from "./AlbumsPlayed.js";
 
 export default function Music({ onMenuSelect }) {
   return (
@@ -56,7 +57,7 @@ export default function Music({ onMenuSelect }) {
 
       <AlbumsRecorded />
 
-      <div className="albums-played-on"></div>
+      <AlbumPlayed />
     </div>
   );
 }
