@@ -1,5 +1,6 @@
 import ArrowButton from "./ArrowButton";
 import Album from "./Album";
+import MusicMenuButton from "./MusicMenuButton.js";
 
 export default function Music({ onMenuSelect }) {
   return (
@@ -14,29 +15,18 @@ export default function Music({ onMenuSelect }) {
       </header>
 
       <div className="music-page-menu">
-        <button
-          className="music-page-menu-button"
-          onClick={() =>
-            document.querySelector(".music-content").scrollIntoView({
-              behavior: "smooth",
-            })
-          }
-        >
-          Albums I've Made
-        </button>
-        <button
-          className="music-page-menu-button"
-          onClick={() =>
-            document.querySelector(".albums-recorded").scrollIntoView({
-              behavior: "smooth",
-            })
-          }
-        >
-          Albums I've Recorded
-        </button>
-        <button className="music-page-menu-button">
-          Albums I've Played On
-        </button>
+        <MusicMenuButton
+          label="Albums I've Made"
+          scrollToClass=".music-content"
+        />
+        <MusicMenuButton
+          label="Albums I've Recorded"
+          scrollToClass=".albums-recorded"
+        />
+        <MusicMenuButton
+          label="Albums I've Played On"
+          scrollToClass=".albums-played-on"
+        />
       </div>
 
       <div className="music-content">
