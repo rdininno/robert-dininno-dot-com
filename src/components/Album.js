@@ -103,9 +103,9 @@ export default function Album() {
         </div>
       </div>
 
-      {selectedAlbumIndex !== null && isAlbumListVisible && (
-        <div className="album-list">
-          <div className="album-list-background">
+      <div className="album-list">
+        <div className="album-list-background">
+          {selectedAlbumIndex !== null && isAlbumListVisible && (
             <div className="album-list-container">
               {albumData[selectedAlbumIndex].tracks.map((track, index) => (
                 <div
@@ -128,9 +128,9 @@ export default function Album() {
                 </div>
               ))}
             </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
