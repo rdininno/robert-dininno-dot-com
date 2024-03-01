@@ -1,15 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
-import AlbumButton from "./AlbumButton";
+import { useState, useEffect, useRef } from "react";
 import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid";
 
-export default function Album({ albumName, tracks }) {
+export default function Album() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isAlbumListVisible, setIsAlbumListVisible] = useState(false);
-  const audioRef = useRef(null);
+  const [selectedAlbumIndex, setSelectedAlbumIndex] = useState(null);
+  const audioRef = useRef(new Audio());
+
+  const albumData = [
+    {
+      albumName: "Soul Vibes",
+      tracks: [
+        { src: "/audio/sonnyblue.mp3", title: "Soul Vibes" },
+        { src: "/audio/street.mp3", title: "On the Block" },
+        { src: "/audio/want.mp3", title: "Wanting" },
+        { src: "/audio/how.mp3", title: "How" },
+      ],
+    },
+    {
+      albumName: "Beat n Soul",
+      tracks: [
+        { src: "/audio/intro.mp3", title: "Intro" },
+        { src: "/audio/festivals.mp3", title: "Festivals" },
+        { src: "/audio/aintrun.mp3", title: "Run" },
+        { src: "/audio/mod.mp3", title: "Modded" },
+      ],
+    },
+  ];
 
   useEffect(() => {
-    audioRef.current = new Audio();
     return () => {
       audioRef.current.pause();
       audioRef.current.src = "";
@@ -17,10 +37,13 @@ export default function Album({ albumName, tracks }) {
   }, []);
 
   const playTrack = (index) => {
+    if (selectedAlbumIndex === null) return;
+
+    const track = albumData[selectedAlbumIndex].tracks[index];
     const isNewTrack = index !== currentTrackIndex;
     if (isNewTrack) {
-      audioRef.current.src = tracks[index].src;
-      audioRef.current.play();
+      audioRef.current.src = track.src;
+      audioRef.current.play().catch((e) => console.error("Playback failed", e));
       setCurrentTrackIndex(index);
       setIsPlaying(true);
     } else {
@@ -33,22 +56,12 @@ export default function Album({ albumName, tracks }) {
     }
   };
 
-  const toggleAlbumListVisibility = () => {
-    setIsAlbumListVisible(!isAlbumListVisible);
-
-    if (isAlbumListVisible) {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-        setIsPlaying(false);
-      }
-    }
-  };
-
   useEffect(() => {
     const handleTrackEnd = () => {
+      if (selectedAlbumIndex === null) return;
+
       let nextIndex = currentTrackIndex + 1;
-      if (nextIndex < tracks.length) {
+      if (nextIndex < albumData[selectedAlbumIndex].tracks.length) {
         playTrack(nextIndex);
       } else {
         setCurrentTrackIndex(null);
@@ -56,42 +69,66 @@ export default function Album({ albumName, tracks }) {
       }
     };
 
-    if (audioRef.current) {
-      audioRef.current.addEventListener("ended", handleTrackEnd);
+    audioRef.current.addEventListener("ended", handleTrackEnd);
+    return () => {
+      audioRef.current.removeEventListener("ended", handleTrackEnd);
+    };
+  }, [currentTrackIndex, selectedAlbumIndex]);
+
+  const handleAlbumSelection = (index) => {
+    if (isPlaying || currentTrackIndex !== null) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlaying(false);
+      setCurrentTrackIndex(null);
     }
 
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener("ended", handleTrackEnd);
-      }
-    };
-  }, [currentTrackIndex, tracks.length]);
+    setSelectedAlbumIndex(index);
+    setIsAlbumListVisible(true);
+  };
 
   return (
-    <div className="album">
-      <div className="album-header">
-        <AlbumButton onClick={toggleAlbumListVisibility} />
-        <h2 className="album-name">{albumName}</h2>
-      </div>
-      {isAlbumListVisible && (
-        <div className="album-list">
-          {tracks.map((track, index) => (
+    <div className="music-content">
+      <div className="album-names-container">
+        <div className="album-names">
+          {albumData.map((album, index) => (
             <div
-              key={index}
-              className={`track ${
-                index === currentTrackIndex ? "is-playing" : ""
-              }`}
+              className="album-name"
+              key={album.albumName}
+              onClick={() => handleAlbumSelection(index)}
             >
-              <button className="audio-button" onClick={() => playTrack(index)}>
-                {currentTrackIndex === index && isPlaying ? (
-                  <PauseIcon className="play-pause-icon" />
-                ) : (
-                  <PlayIcon className="play-pause-icon" />
-                )}
-              </button>
-              <span className="track-title">{track.title}</span>
+              {album.albumName}
             </div>
           ))}
+        </div>
+      </div>
+
+      {selectedAlbumIndex !== null && isAlbumListVisible && (
+        <div className="album-list">
+          <div className="album-list-background">
+            <div className="album-list-container">
+              {albumData[selectedAlbumIndex].tracks.map((track, index) => (
+                <div
+                  key={track.title}
+                  className={`track ${
+                    index === currentTrackIndex ? "is-playing" : ""
+                  }`}
+                >
+                  <button
+                    className="audio-button"
+                    onClick={() => playTrack(index)}
+                  >
+                    {currentTrackIndex === index && isPlaying ? (
+                      <PauseIcon className="play-pause-icon" />
+                    ) : (
+                      <PlayIcon className="play-pause-icon" />
+                    )}
+                  </button>
+                  <span className="track-title">{track.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>
