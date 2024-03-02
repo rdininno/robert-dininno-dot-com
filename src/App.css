@@ -274,12 +274,13 @@ header p {
   margin-bottom: 20px;
 }
 
-.albums-played-on{
+.albums-played-on {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
   justify-content: space-around;
   align-content: flex-start;
+  min-height: 100vh;
 }
 
 .albums-played-container {
@@ -349,8 +350,8 @@ header p {
   justify-content: center;
   align-items: center;
   width: 50vw;
+  height: 100vh;
 }
-
 .album-list-background {
   display: flex;
   flex-direction: column;
@@ -423,6 +424,31 @@ header p {
 .album-list-container-dark {
   display: flex;
   flex-direction: column;
+}
+
+.album-names-container-scroll {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.album-name-smaller {
+  font-size: 2em;
+  width: 70%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50px;
+  border: 2px dashed black;
+  margin-bottom: 20px;
+}
+
+.album-name-smaller:hover {
+  background-color: #000;
+  color: #0800e7;
 }
 
 /* Audio Player */
