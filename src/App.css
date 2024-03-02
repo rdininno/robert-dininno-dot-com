@@ -252,6 +252,7 @@ header p {
   width: 100vw;
   justify-content: space-around;
   align-content: flex-start;
+  min-height: 100vh;
 }
 
 .albums-recorded-container {
@@ -361,6 +362,65 @@ header p {
 }
 
 .album-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.album-name-dark {
+  font-size: 3em;
+  width: 70%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50px;
+  border: 2px dashed #0800e7;
+  margin-bottom: 20px;
+  color: #0800e7;
+}
+
+.album-name-dark:hover {
+  background-color: #0800e7;
+  color: #000;
+}
+
+.album-name-dark {
+  font-size: 2em;
+  width: 70%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50px;
+  border: 2px dashed #0800e7;
+  margin-bottom: 20px;
+  color: #0800e7;
+}
+
+.album-names-container-dark {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.album-list-dark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+}
+
+.album-list-background-dark {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  background-color: #0800e7;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
+.album-list-container-dark {
   display: flex;
   flex-direction: column;
 }
@@ -486,14 +546,6 @@ header p {
 /* iframe */
 .iframe{
   border: 0; 
-  width: 40%; 
-  height: 120px;
-  margin-bottom: 20px;
-}
-
-.iframe-large{
-  border: 0; 
   width: 380px; 
   height: 500px;
-  margin-bottom: 20px;
 }
