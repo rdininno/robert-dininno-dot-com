@@ -10,16 +10,25 @@ export default function Album() {
 
   const albumData = [
     {
-      albumName: "Soul Vibes",
+      albumName: "Beat n' Soul",
       tracks: [
         { src: "intro.mp3", title: "Intro" },
         { src: "festivals.mp3", title: "Festivals" },
         { src: "aintrun.mp3", title: "Run" },
         { src: "mod.mp3", title: "Modded" },
-        { src: "sonnyblue.mp3", title: "Soul Vibes" },
+        { src: "sonnyblue.mp3", title: "Sonny" },
         { src: "street.mp3", title: "On the Block" },
         { src: "want.mp3", title: "Wanting" },
         { src: "how.mp3", title: "How" },
+      ],
+    },
+    {
+      albumName: "Soul Vibrations",
+      tracks: [
+        { src: "Ecstasy.mp3", title: "In Ecstasy" },
+        { src: "Dingki_Dough.mp3", title: "Dingki Dough" },
+        { src: "Waxed.mp3", title: "Waxed" },
+        { src: "Jade-Rock.mp3", title: "Jade Rock" },
       ],
     },
   ];
