@@ -12,19 +12,14 @@ export default function Album() {
     {
       albumName: "Soul Vibes",
       tracks: [
-        { src: "/audio/sonnyblue.mp3", title: "Soul Vibes" },
-        { src: "/audio/street.mp3", title: "On the Block" },
-        { src: "/audio/want.mp3", title: "Wanting" },
-        { src: "/audio/how.mp3", title: "How" },
-      ],
-    },
-    {
-      albumName: "Beat n Soul",
-      tracks: [
-        { src: "/audio/intro.mp3", title: "Intro" },
-        { src: "/audio/festivals.mp3", title: "Festivals" },
-        { src: "/audio/aintrun.mp3", title: "Run" },
-        { src: "/audio/mod.mp3", title: "Modded" },
+        { src: "intro.mp3", title: "Intro" },
+        { src: "festivals.mp3", title: "Festivals" },
+        { src: "aintrun.mp3", title: "Run" },
+        { src: "mod.mp3", title: "Modded" },
+        { src: "sonnyblue.mp3", title: "Soul Vibes" },
+        { src: "street.mp3", title: "On the Block" },
+        { src: "want.mp3", title: "Wanting" },
+        { src: "how.mp3", title: "How" },
       ],
     },
   ];
@@ -36,23 +31,38 @@ export default function Album() {
     };
   }, []);
 
-  const playTrack = (index) => {
+  const playTrack = async (index) => {
     if (selectedAlbumIndex === null) return;
 
     const track = albumData[selectedAlbumIndex].tracks[index];
-    const isNewTrack = index !== currentTrackIndex;
-    if (isNewTrack) {
-      audioRef.current.src = track.src;
-      audioRef.current.play().catch((e) => console.error("Playback failed", e));
-      setCurrentTrackIndex(index);
-      setIsPlaying(true);
-    } else {
-      if (isPlaying) {
-        audioRef.current.pause();
+
+    // Fetch the signed URL from your backend
+    try {
+      const response = await fetch(
+        `http://localhost:3001/generate-presigned-url?fileName=${encodeURIComponent(
+          track.src
+        )}`
+      );
+      const data = await response.json();
+
+      const isNewTrack = index !== currentTrackIndex;
+      if (isNewTrack) {
+        audioRef.current.src = data.url;
+        audioRef.current
+          .play()
+          .catch((e) => console.error("Playback failed", e));
+        setCurrentTrackIndex(index);
+        setIsPlaying(true);
       } else {
-        audioRef.current.play();
+        if (isPlaying) {
+          audioRef.current.pause();
+        } else {
+          audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
       }
-      setIsPlaying(!isPlaying);
+    } catch (error) {
+      console.error("Error fetching signed URL", error);
     }
   };
 
