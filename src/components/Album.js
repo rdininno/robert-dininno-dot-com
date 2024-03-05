@@ -31,6 +31,25 @@ export default function Album() {
         { src: "Jade-Rock.mp3", title: "Jade Rock" },
       ],
     },
+    {
+      albumName: "The Challenge",
+      tracks: [
+        { src: "Bun.mp3", title: "Bun" },
+        { src: "BeatChal8_oneMin_1.mp3", title: "Ites" },
+        { src: "Soin_OneMIn.mp3", title: "So In Love" },
+        { src: "Smoke.mp3", title: "Smoking" },
+        { src: "BeatChal7.mp3", title: "Luka" },
+      ],
+    },
+    {
+      albumName: "Explorations",
+      tracks: [
+        { src: "SP_FirstGo_2.mp3", title: "CeeDee" },
+        { src: "SP2.mp3", title: "Saquan" },
+        { src: "Time_1.mp3", title: "Amon Ra" },
+        { src: "BeatChal6.mp3", title: "J. Jets" },
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -45,7 +64,6 @@ export default function Album() {
 
     const track = albumData[selectedAlbumIndex].tracks[index];
 
-    // Fetch the signed URL from your backend
     try {
       const response = await fetch(
         `http://localhost:3001/generate-presigned-url?fileName=${encodeURIComponent(

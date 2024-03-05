@@ -3,8 +3,6 @@ import Button from "./Button";
 export default function MainPage({ onMenuSelect }) {
   return (
     <div className="main-page">
-      {/* <div className="menu"></div> */}
-
       <header className="header">
         <h1>Robert Di Ninno</h1>
         <div className="description">
