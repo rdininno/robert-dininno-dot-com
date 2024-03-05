@@ -575,3 +575,286 @@ header p {
   width: 380px; 
   height: 500px;
 }
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 6em;
+  }
+
+  header p {
+    font-size: 2em;
+  }
+
+  .button {
+    font-size: 2em;
+  }
+
+  .job-title {
+    font-size: 2em;
+    margin: 0px;
+  }
+
+  .job-year {
+    font-size: 1.5em;
+    margin: 5px 0px;
+  }
+
+  .job-description {
+    font-size: 	1.1250em;
+  }
+
+  .email {
+    font-size: 2.5em;
+  }
+
+  .blurb {
+    font-size: 1.35em;
+  }
+
+  .skills-container p {
+    font-size: 1em;
+  }
+
+  .music-page-menu-button {
+    font-size: 2em;
+    height: 80vh;
+  }
+
+  .album-name {
+    font-size: 2em;
+  }
+
+  .track-title {
+    font-size: 2em;
+  }
+
+  .audio-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .album-name-dark {
+    font-size: 1.25em;
+  }
+
+  .album-name-smaller {
+    font-size: 1.25em;
+  }
+
+  .iframe {
+    width: 300px;
+    height: 420px;
+  }
+
+  .visual-content {
+    font-size: 6em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 5em;
+  }
+
+  header p {
+    font-size: 1.75em;
+    padding: 0px 5px;
+    margin: 10px 0px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+
+  .button {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  .employment h1 {
+    font-size: 3em;
+  }
+
+  .employment .down-button{
+    display: none;
+  }
+
+  .employment .up-button{
+    display: none;
+  }
+
+  .job-title {
+    font-size: 1.5em;
+  }
+
+  .job-year {
+    font-size: 1.25em;
+  }
+
+  .about-page {
+    flex-direction: column;
+    padding: 85px 20px 0px;
+  }
+
+  .email {
+    font-size: 1.5em;
+  }
+
+  .blurb {
+    font-size: 1.125em;
+    margin: 10px auto 5px auto;
+    width: 100%;
+  }
+
+  .skills-container {
+    font-size: 1.75em;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    flex-direction: initial;
+    justify-content: space-between;
+    width: 100%;
+}
+
+  .skills-container p {
+    font-size: 1em;
+    margin: 2px;
+  }
+
+  .art-content {
+    flex-direction: column;
+  }
+
+  .art-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .art-page-button {
+    font-size: 4em;
+    height: 50vh;
+  }
+
+  .visual-content {
+    font-size: 4em;
+  }
+
+  .music-page-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .music-page-menu-button {
+    font-size: 1.5em;
+    padding: 60px 25px;
+    margin: 10px;
+    width: 90%;
+  }
+
+  .music-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .album-names-container {
+    width: 100%;
+    overflow-x: auto;
+    height: 130px;
+    -webkit-overflow-scrolling: touch;
+}
+  
+  .album-names {
+    display: flex;
+    flex-direction: row;
+    gap: 15px; 
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+  }
+  
+  .album-name {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 0px;
+  }
+
+  .album-list {
+    width: 100%;
+  }
+
+  .album-list-background {
+    height: 90%;
+    margin-bottom: 20px;
+  }
+
+  .album-names-container-scroll{
+    width: 85%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .album-name-smaller {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .albums-recorded {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .album-list-background-dark {
+    height: 100%;
+}
+
+  .album-names-container-dark {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 90%;
+    height: 130px;
+    padding-top: 0px;
+  }
+
+  .album-name-dark {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 0px;
+  }
+
+  .album-list-dark {
+    width: 100%;
+    min-height: 75%;
+  }
+
+  .iframe {
+    width: 250px;
+    height: 420px;
+  }
+}
