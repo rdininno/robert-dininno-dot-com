@@ -64,6 +64,18 @@ export default function AlbumPlayed() {
 
   return (
     <div className="albums-played-on">
+      <div className="album-names-container-scroll">
+        {albumData.map((album, index) => (
+          <div
+            className="album-name-smaller"
+            key={index}
+            onClick={() => handleAlbumSelection(album)}
+          >
+            {album.albumName}
+          </div>
+        ))}
+      </div>
+
       <div className="album-list">
         <div className="album-list-background">
           {albumSelected && (
@@ -78,18 +90,6 @@ export default function AlbumPlayed() {
             ></iframe>
           )}
         </div>
-      </div>
-
-      <div className="album-names-container-scroll">
-        {albumData.map((album, index) => (
-          <div
-            className="album-name-smaller"
-            key={index}
-            onClick={() => handleAlbumSelection(album)}
-          >
-            {album.albumName}
-          </div>
-        ))}
       </div>
     </div>
   );
