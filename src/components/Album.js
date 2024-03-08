@@ -125,17 +125,15 @@ export default function Album() {
   return (
     <div className="music-content">
       <div className="album-names-container">
-        <div className="album-names">
-          {albumData.map((album, index) => (
-            <div
-              className="album-name"
-              key={album.albumName}
-              onClick={() => handleAlbumSelection(index)}
-            >
-              {album.albumName}
-            </div>
-          ))}
-        </div>
+        {albumData.map((album, index) => (
+          <div
+            className="album-name"
+            key={album.albumName}
+            onClick={() => handleAlbumSelection(index)}
+          >
+            {album.albumName}
+          </div>
+        ))}
       </div>
 
       <div className="album-list">
