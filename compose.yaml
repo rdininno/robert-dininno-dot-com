@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.react
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "3001:3001"
+    environment:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_S3_BUCKET
+      - AWS_REGION
+      - NODE_ENV=production
