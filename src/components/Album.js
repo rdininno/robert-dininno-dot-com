@@ -66,9 +66,7 @@ export default function Album() {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/generate-presigned-url?fileName=${encodeURIComponent(
-          track.src
-        )}`
+        `/generate-presigned-url?fileName=${encodeURIComponent(track.src)}`
       );
       const data = await response.json();
 

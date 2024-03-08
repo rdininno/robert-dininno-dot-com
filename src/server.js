@@ -1,6 +1,7 @@
 require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
+const path = require("path");
 const AWS = require("aws-sdk");
 const app = express();
 const port = process.env.PORT || 3001;
@@ -28,6 +29,8 @@ app.get("/generate-presigned-url", (req, res) => {
 
   res.send({ url });
 });
+
+app.use("/", express.static(path.join(__dirname, "../build")));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
