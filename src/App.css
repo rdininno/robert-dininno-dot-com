@@ -64,9 +64,9 @@ header p {
 }
 
 .down-button {
-  position: absolute; /* Use 'fixed' to keep it at the bottom left regardless of scrolling */
-  bottom: 20px; /* Distance from the bottom */
-  left: 20px; /* Distance from the left */
+  position: absolute; 
+  bottom: 20px;
+  left: 20px;
   z-index: 10;
 }
 
@@ -543,6 +543,7 @@ header p {
   border-radius: 50%;
   width: 70px;
   height: 70px;
+  aspect-ratio: 1 / 1; 
   border: 2px solid #000;
   background-color: #0800e700;
   font-size: 50px;
@@ -662,7 +663,7 @@ header p {
   }
 
   h1 {
-    font-size: 5em;
+    font-size: 6em;
   }
 
   header p {
@@ -680,6 +681,13 @@ header p {
   .button {
     font-size: 2em;
     margin-bottom: 10px;
+    background-color: #000;
+    color: #0800e7;
+  }
+
+  .arrowButton:hover {
+    background-color: #0800e7;
+    color: #000000;
   }
 
   .employment h1 {
@@ -733,6 +741,7 @@ header p {
 
   .art-content {
     flex-direction: column;
+    gap: 20px;
   }
 
   .art-button-wrapper {
@@ -743,8 +752,11 @@ header p {
   }
 
   .art-page-button {
-    font-size: 4em;
     height: 50vh;
+  }
+
+  .art-page-button:hover {
+    animation: none;
   }
 
   .visual-content {
@@ -763,6 +775,11 @@ header p {
     width: 90%;
   }
 
+  .music-page-menu-button:hover {
+    background-color: #000;
+    color: #0800e7; 
+  }
+
   .music-content {
     display: flex;
     flex-direction: column;
@@ -776,6 +793,7 @@ header p {
 }
   
   .album-names {
+    height: 100%;
     display: flex;
     flex-direction: row;
     gap: 15px; 
