@@ -558,9 +558,10 @@ header p {
 }
 
 .arrowButton svg {
-  width: auto;
-  height: auto;
-}
+  height: 100%;
+  width: 100%;
+  color: #000;
+  }
 
 /* button */
 .button {
@@ -691,10 +692,21 @@ header p {
     color: #0800e7;
   }
 
+  .arrowButton {
+    font-size: 30px;
+    padding: 0px;
+  }
+
   .arrowButton:hover {
     background-color: #0800e7;
     color: #000000;
   }
+
+  .arrowButton svg {
+    height: 100%;
+    width: 100%;
+    color: #000;
+    }
 
   svg {
     display: inline-block;
