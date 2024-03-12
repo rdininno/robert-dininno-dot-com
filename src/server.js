@@ -24,7 +24,7 @@ app.get("/generate-presigned-url", (req, res) => {
   const url = s3.getSignedUrl("getObject", {
     Bucket: process.env.AWS_S3_BUCKET,
     Key: fileName,
-    Expires: 60 * 8,
+    Expires: 10 * 60,
   });
 
   res.send({ url });
